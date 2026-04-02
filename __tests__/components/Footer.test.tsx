@@ -40,10 +40,9 @@ describe('Footer component', () => {
     expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument()
   })
 
-  it('should have GuideStar profile link', () => {
+  it('should display pre-501c3 endorsement note', () => {
     render(<Footer />)
-    const guidestarLink = screen.getByText(/GuideStar Profile/i)
-    expect(guidestarLink).toBeInTheDocument()
+    expect(screen.getByText(/pre-501/i)).toBeInTheDocument()
   })
 
   it('should have email contact link', () => {
@@ -55,7 +54,7 @@ describe('Footer component', () => {
 
   it('should display the EIN number', () => {
     render(<Footer />)
-    expect(screen.getByText(/46-2471893/)).toBeInTheDocument()
+    expect(screen.getByText(/41-4311007/)).toBeInTheDocument()
   })
 
   it('should have phone contact link', () => {
@@ -100,20 +99,9 @@ describe('Footer component', () => {
     }
   })
 
-  it('should have GuideStar image with alt text', () => {
+  it('should display Free For Charity link in copyright bar', () => {
     render(<Footer />)
-    expect(screen.getByAltText('GuideStar Platinum Seal of Transparency')).toBeInTheDocument()
-  })
-
-  it('should have Google Maps links for addresses', () => {
-    render(<Footer />)
-    expect(screen.getByLabelText('Open main address in Google Maps')).toBeInTheDocument()
-    expect(screen.getByLabelText('Open PA office address in Google Maps')).toBeInTheDocument()
-  })
-
-  it('should display freeforcharity.org link in copyright bar', () => {
-    render(<Footer />)
-    const link = screen.getByText('https://freeforcharity.org')
+    const link = screen.getByText('Free For Charity')
     expect(link.closest('a')).toHaveAttribute('href', 'https://freeforcharity.org')
   })
 

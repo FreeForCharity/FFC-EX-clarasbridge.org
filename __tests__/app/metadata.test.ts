@@ -2,39 +2,38 @@ import { siteMetadata } from '../../src/lib/siteMetadata'
 
 describe('Site metadata', () => {
   it('should have the correct metadataBase URL', () => {
-    expect(siteMetadata.metadataBase?.toString()).toBe('https://ffcworkingsite1.org/')
+    expect(siteMetadata.metadataBase?.toString()).toBe('https://clarasbridge.org/')
   })
 
-  it('should have a title containing Free For Charity', () => {
+  it("should have a title containing Clara's Bridge", () => {
     const title = siteMetadata.title as { default: string; template: string }
-    expect(title.default).toContain('Free For Charity')
-    expect(title.template).toContain('Free For Charity')
+    expect(title.default).toContain("Clara's Bridge")
+    expect(title.template).toContain("Clara's Bridge")
   })
 
-  it('should have a description mentioning nonprofits', () => {
-    expect(siteMetadata.description).toContain('nonprofits')
+  it('should have a description mentioning recovery', () => {
+    expect(siteMetadata.description).toContain('recovery')
     expect(siteMetadata.description!.length).toBeGreaterThan(50)
   })
 
   it('should have relevant keywords', () => {
     const keywords = siteMetadata.keywords as string[]
+    expect(keywords).toContain('recovery')
+    expect(keywords).toContain('mentorship')
     expect(keywords).toContain('nonprofit')
-    expect(keywords).toContain('charity')
-    expect(keywords).toContain('volunteer')
   })
 
   it('should define OpenGraph fields', () => {
     const og = siteMetadata.openGraph as Record<string, unknown>
     expect(og.type).toBe('website')
-    expect(og.siteName).toBe('Free For Charity')
-    expect(og.url).toBe('https://ffcworkingsite1.org/')
+    expect(og.siteName).toBe("Clara's Bridge")
+    expect(og.url).toBe('https://clarasbridge.org/')
     expect(og.images).toBeDefined()
   })
 
   it('should define Twitter card fields', () => {
     const twitter = siteMetadata.twitter as Record<string, unknown>
     expect(twitter.card).toBe('summary_large_image')
-    expect(twitter.site).toContain('freeforcharity')
   })
 
   it('should allow indexing and following', () => {

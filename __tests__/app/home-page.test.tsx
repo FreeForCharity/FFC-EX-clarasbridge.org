@@ -1,26 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
-// Mock TeamMemberCard since TheFreeForCharityTeam uses it
-jest.mock('../../src/components/ui/TeamMemberCard', () => {
-  return function MockTeamMemberCard({
-    name,
-    title,
-  }: {
-    name: string
-    title: string
-    imageUrl: string
-    linkedinUrl: string
-  }) {
-    return (
-      <div data-testid="team-member-card">
-        <span>{name}</span>
-        <span>{title}</span>
-      </div>
-    )
-  }
-})
-
 import HomePage from '../../src/app/home-page'
 
 describe('HomePage (app/home-page)', () => {
@@ -28,8 +8,31 @@ describe('HomePage (app/home-page)', () => {
     render(<HomePage />)
   })
 
-  it('should render TheFreeForCharityTeam component', () => {
+  it('should render Our Purpose section', () => {
     render(<HomePage />)
-    expect(screen.getAllByTestId('team-member-card').length).toBeGreaterThan(0)
+    expect(screen.getByText('Our Purpose')).toBeInTheDocument()
+  })
+
+  it('should render Who We Help section', () => {
+    render(<HomePage />)
+    expect(screen.getByText('Individuals rebuilding their lives')).toBeInTheDocument()
+  })
+
+  it('should render Our Story section', () => {
+    render(<HomePage />)
+    expect(screen.getByText('Why Clara\u2019s Bridge Exists')).toBeInTheDocument()
+  })
+
+  it('should render Services section', () => {
+    render(<HomePage />)
+    expect(screen.getByText('Mentorship')).toBeInTheDocument()
+    expect(screen.getByText('Life Skills')).toBeInTheDocument()
+    expect(screen.getByText('Accountability')).toBeInTheDocument()
+    expect(screen.getByText('Community')).toBeInTheDocument()
+  })
+
+  it('should render Contact section', () => {
+    render(<HomePage />)
+    expect(screen.getByText('info@clarasbridge.org')).toBeInTheDocument()
   })
 })

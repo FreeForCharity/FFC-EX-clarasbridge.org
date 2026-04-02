@@ -60,7 +60,7 @@ describe('Header component', () => {
 
   it('should display all expected navigation items', () => {
     render(<Header />)
-    const navItems = ['Home', 'Team']
+    const navItems = ['Home', 'Our Purpose', 'Our Story', 'Services', 'Contact']
     for (const item of navItems) {
       expect(screen.getAllByText(item).length).toBeGreaterThanOrEqual(1)
     }
