@@ -2,25 +2,24 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 import { FaFacebookF, FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 
 const Footer: React.FC = () => {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
   const currentYear = React.useMemo(() => new Date().getFullYear(), [])
   const socialLinks = [
-    { icon: FaFacebookF, href: 'https://www.facebook.com/freeforcharity', label: 'Facebook' },
-    { icon: FaXTwitter, href: 'https://x.com/freeforcharity1', label: 'X (Twitter)' },
+    { icon: FaFacebookF, href: '#', label: 'Facebook' },
+    { icon: FaXTwitter, href: '#', label: 'X (Twitter)' },
     {
       icon: FaLinkedinIn,
-      href: 'https://www.linkedin.com/company/freeforcharity/',
+      href: '#',
       label: 'LinkedIn',
     },
     {
       icon: FaGithub,
-      href: 'https://github.com/FreeForCharity/FFC-IN-Footer-Only-Template',
+      href: 'https://github.com/FreeForCharity/FFC-IN-ClarasBridge',
       label: 'GitHub',
     },
   ]
@@ -32,34 +31,13 @@ const Footer: React.FC = () => {
           <h3 className="text-[28px] text-white">Endorsements</h3>
 
           <div className="space-y-4">
-            <a
-              href="https://www.guidestar.org/profile/46-2471893"
-              aria-label="View Free For Charity GuideStar Profile"
-            >
-              <img
-                src={`${basePath}/Svgs/footerImage.svg`}
-                alt="GuideStar Platinum Seal of Transparency"
-              />
-            </a>
-            <Link
-              href="https://www.guidestar.org/profile/shared/bbbe173a-87b9-4af9-a8a2-cae255a95742"
-              className="group relative my-4 flex w-full max-w-[230px] items-center justify-between
-                border-2 border-[#2ea3f2] bg-black px-5 py-2.5 text-[#2ea3f2]
-                transition-all duration-300 hover:border-transparent"
-              id="aria-font"
-            >
-              <span className="text-[17px] font-medium leading-tight sm:text-[18px] md:text-[20px] transition-transform duration-300 group-hover:-translate-x-1">
-                Direct GuideStar Profile Link
-              </span>
-
-              <ArrowRight
-                className="h-8 w-8 translate-x-2 opacity-0 text-[#2ea3f2] transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
-                strokeWidth={2}
-              />
-            </Link>
+            <p className="text-sm text-gray-400" id="aria-font">
+              Clara&apos;s Bridge is a pre-501(c)(3) nonprofit. GuideStar/Candid endorsement links
+              will be added upon IRS determination.
+            </p>
 
             <p>
-              <span className="font-[500] text-[22px]">Free For Charity EIN: 46-2471893</span>
+              <span className="font-[500] text-[22px]">Clara&apos;s Bridge EIN: 41-4311007</span>
             </p>
           </div>
         </div>
@@ -70,14 +48,12 @@ const Footer: React.FC = () => {
 
           <ul className="space-y-2 text-sm" id="lato-font">
             {[
-              { name: 'Home (Placeholder)', href: '/#hero' },
-              { name: 'Mission (Placeholder)', href: '/#mission' },
-              { name: 'Programs (Placeholder)', href: '/#programs' },
-              { name: 'Events (Placeholder)', href: '/#events' },
-              { name: 'Donate (Placeholder)', href: '/#donate' },
-              { name: 'Volunteer (Placeholder)', href: '/#volunteer' },
-              { name: 'FAQ (Placeholder)', href: '/#faq' },
-              { name: 'Team (Placeholder)', href: '/#team' },
+              { name: 'Home', href: '/#hero' },
+              { name: 'Our Purpose', href: '/#purpose' },
+              { name: 'Who We Help', href: '/#who-we-help' },
+              { name: 'Our Story', href: '/#our-story' },
+              { name: 'Services', href: '/#services' },
+              { name: 'Contact', href: '/#contact' },
               {
                 name: 'Supported Charity Login',
                 href: 'https://freeforcharity.org/hub/',
@@ -147,11 +123,11 @@ const Footer: React.FC = () => {
               <div>
                 <p className="font-[500] text-[22px]">E-mail</p>
                 <a
-                  href="mailto:clarkemoyer@freeforcharity.org"
+                  href="mailto:info@clarasbridge.org"
                   className="font-[500] text-[15px] hover:text-cyan-400 transition-colors break-all"
                   id="aria-font"
                 >
-                  clarkemoyer@freeforcharity.org
+                  info@clarasbridge.org
                 </a>
               </div>
             </div>
@@ -161,52 +137,27 @@ const Footer: React.FC = () => {
               <div>
                 <p className="font-[500] text-[22px]">Call Us Today</p>
                 <a
-                  href="tel:5202228104"
+                  href="tel:4049541194"
                   className="font-[500] text-[16px] hover:text-cyan-400 transition-colors"
                   id="aria-font"
                 >
-                  (520) 222-8104
+                  (404) 954-1194
                 </a>
               </div>
             </div>
 
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=4030+Wake+Forrest+Road+Suite+349+Raleigh+NC+27609"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open main address in Google Maps"
-              className="flex items-start gap-3 hover:opacity-80 transition-opacity"
+            <div
+              className="flex items-start gap-3"
             >
               <MapPin className="w-10 h-10 text-orange-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-[500] text-[22px]">Main Address</p>
                 <p className="font-[500] text-[16px]" id="aria-font">
-                  4030 Wake Forrest Road
-                  <br />
-                  Suite 349 Raleigh North
-                  <br />
-                  Carolina 27609
+                  {/* TODO: Update with client mailing address */}
+                  Address TBD
                 </p>
               </div>
-            </a>
-
-            <a
-              href="https://www.google.com/maps/place/Free+For+Charity/@40.7768455,-77.8963305,17z/data=!3m1!4b1!4m6!3m5!1s0x89cea944b44a2e01:0x6fc2d6bf09e00a0f!8m2!3d40.7768415!4d-77.8937556!16s%2Fg%2F11vzvbl2d7?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open PA office address in Google Maps"
-              className="flex items-start gap-3 hover:opacity-80 transition-opacity"
-            >
-              <MapPin className="w-10 h-10 text-orange-500 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-[500] text-[22px]">PA Office Address</p>
-                <p className="font-[500] text-[16px]" id="aria-font">
-                  301 Science Park Road Suite
-                  <br />
-                  119 State College PA 16803
-                </p>
-              </div>
-            </a>
+            </div>
 
             <div className="flex gap-3 pt-4">
               {socialLinks.map(({ icon: Icon, href, label }, index) => (
@@ -232,13 +183,13 @@ const Footer: React.FC = () => {
         id="aria-font"
       >
         <p>
-          © {currentYear} All Rights Are Reserved by Free For Charity a US 501c3 Non Profit | A
+          © {currentYear} Clara&apos;s Bridge. All Rights Reserved | A
           project of{' '}
           <Link
             href="https://freeforcharity.org"
             className="underline text-[#2EA3F2] hover:text-[#2EA3F2] transition-colors"
           >
-            https://freeforcharity.org
+            Free For Charity
           </Link>
         </p>
       </div>

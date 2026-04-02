@@ -23,7 +23,10 @@ const Header: React.FC = () => {
   const menuItems: MenuItem[] = useMemo(
     () => [
       { label: 'Home', path: '/#hero' },
-      { label: 'Team', path: '/#team' },
+      { label: 'Our Purpose', path: '/#purpose' },
+      { label: 'Our Story', path: '/#our-story' },
+      { label: 'Services', path: '/#services' },
+      { label: 'Contact', path: '/#contact' },
     ],
     []
   )

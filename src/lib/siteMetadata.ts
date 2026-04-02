@@ -4,21 +4,21 @@ import type { Metadata } from 'next'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL('https://ffcworkingsite1.org'),
+  metadataBase: new URL('https://clarasbridge.org'),
   title: {
-    default: 'Free For Charity | Reduce Costs, Increase Impact',
-    template: '%s | Free For Charity',
+    default: "Clara's Bridge | Recovery Mentorship & Support",
+    template: "%s | Clara's Bridge",
   },
   description:
-    'Free For Charity connects students, professionals, and businesses with nonprofits to reduce costs and increase revenues—putting more resources back into their missions.',
+    "Clara's Bridge supports individuals rebuilding their lives in recovery by providing structured mentorship, regular check-ins, and connections to community resources.",
   keywords: [
+    'recovery',
+    'mentorship',
+    'addiction recovery',
     'nonprofit',
-    'charity',
-    'volunteer',
-    'donate',
-    'free hosting',
-    'domains',
-    'Microsoft 365',
+    'community support',
+    'sober living',
+    'life skills',
   ],
   robots: {
     index: true,
@@ -36,26 +36,26 @@ export const siteMetadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://ffcworkingsite1.org/',
-    siteName: 'Free For Charity',
-    title: 'Free For Charity | Reduce Costs, Increase Impact',
+    url: 'https://clarasbridge.org/',
+    siteName: "Clara's Bridge",
+    title: "Clara's Bridge | Recovery Mentorship & Support",
     description:
-      'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
+      "Supporting individuals rebuilding their lives in recovery through structured mentorship and community connections.",
     images: [
       {
         url: '/web-app-manifest-512x512.png',
         width: 512,
         height: 512,
-        alt: 'Free For Charity',
+        alt: "Clara's Bridge",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@freeforcharity',
-    title: 'Free For Charity | Reduce Costs, Increase Impact',
+    site: '',
+    title: "Clara's Bridge | Recovery Mentorship & Support",
     description:
-      'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
+      "Supporting individuals rebuilding their lives in recovery through structured mentorship and community connections.",
     images: ['/web-app-manifest-512x512.png'],
   },
   icons: {
