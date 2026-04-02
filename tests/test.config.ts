@@ -18,19 +18,19 @@ export const testConfig = {
    */
   socialLinks: {
     facebook: {
-      url: 'facebook.com/freeforcharity',
+      url: '#',
       ariaLabel: 'Facebook',
     },
     twitter: {
-      url: 'x.com/freeforcharity1',
+      url: '#',
       ariaLabel: 'X (Twitter)',
     },
     linkedin: {
-      url: 'linkedin.com/company/freeforcharity',
+      url: '#',
       ariaLabel: 'LinkedIn',
     },
     github: {
-      url: 'github.com/FreeForCharity/FFC-IN-Footer-Only-Template',
+      url: 'github.com/FreeForCharity/FFC-EX-clarasbridge.org',
       ariaLabel: 'GitHub',
     },
   },
@@ -40,10 +40,10 @@ export const testConfig = {
    * Used in: tests/copyright.spec.ts
    */
   copyright: {
-    text: 'All Rights Are Reserved by Free For Charity a US 501c3 Non Profit',
-    searchText: 'All Rights Are Reserved',
+    text: "Clara's Bridge. All Rights Reserved | A project of Free For Charity",
+    searchText: 'All Rights Reserved',
     linkUrl: 'https://freeforcharity.org',
-    linkText: 'https://freeforcharity.org',
+    linkText: 'Free For Charity',
   },
 
   /**
@@ -59,7 +59,7 @@ export const testConfig = {
    * Used in: tests/footer-only.spec.ts
    */
   logo: {
-    headerAlt: 'Free For Charity',
+    headerAlt: "Clara's Bridge",
   },
 
   /**
