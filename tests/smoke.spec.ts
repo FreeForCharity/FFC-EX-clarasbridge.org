@@ -105,7 +105,10 @@ test.describe('Post-deploy smoke tests', () => {
 
     // Verify all 4 social links
     for (const [, social] of Object.entries(testConfig.socialLinks)) {
-      const link = footer.locator(`a[href*="${social.url}"]`)
+      const link =
+        social.url === '#'
+          ? footer.locator(`a[aria-label="${social.ariaLabel}"]`)
+          : footer.locator(`a[href*="${social.url}"]`)
       await expect(link, `Social link for ${social.ariaLabel}`).toBeVisible()
       await expect(link).toHaveAttribute('aria-label', social.ariaLabel)
     }
