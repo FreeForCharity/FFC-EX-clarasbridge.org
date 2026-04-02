@@ -145,26 +145,26 @@ describe('Header component', () => {
   })
 
   it('should highlight active section based on scroll spy', () => {
-    // Create a mock team section element
-    const teamSection = document.createElement('div')
-    teamSection.id = 'team'
-    Object.defineProperty(teamSection, 'offsetTop', { value: 200, configurable: true })
-    Object.defineProperty(teamSection, 'offsetHeight', { value: 500, configurable: true })
-    document.body.appendChild(teamSection)
+    // Create a mock purpose section element
+    const purposeSection = document.createElement('div')
+    purposeSection.id = 'purpose'
+    Object.defineProperty(purposeSection, 'offsetTop', { value: 200, configurable: true })
+    Object.defineProperty(purposeSection, 'offsetHeight', { value: 500, configurable: true })
+    document.body.appendChild(purposeSection)
 
     render(<Header />)
 
-    // Scroll into the team section
+    // Scroll into the purpose section
     Object.defineProperty(window, 'scrollY', { value: 250, writable: true })
     fireEvent.scroll(window)
 
-    // The Team link should be styled as active (text-blue-600)
-    const teamLinks = screen.getAllByText('Team')
-    const activeTeamLink = teamLinks.find((link) => link.className.includes('text-blue-600'))
-    expect(activeTeamLink).toBeDefined()
+    // The Our Purpose link should be styled as active (text-blue-600)
+    const purposeLinks = screen.getAllByText('Our Purpose')
+    const activePurposeLink = purposeLinks.find((link) => link.className.includes('text-blue-600'))
+    expect(activePurposeLink).toBeDefined()
 
     // Clean up
-    document.body.removeChild(teamSection)
+    document.body.removeChild(purposeSection)
   })
 
   it('should set Home as active when scrolled to top', () => {

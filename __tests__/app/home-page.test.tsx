@@ -20,7 +20,7 @@ describe('HomePage (app/home-page)', () => {
 
   it('should render Our Story section', () => {
     render(<HomePage />)
-    expect(screen.getByText('Why Clara\u2019s Bridge Exists')).toBeInTheDocument()
+    expect(screen.getByText("Why Clara's Bridge Exists")).toBeInTheDocument()
   })
 
   it('should render Services section', () => {
