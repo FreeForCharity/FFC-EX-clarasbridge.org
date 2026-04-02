@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     },
     {
       icon: FaGithub,
-      href: 'https://github.com/FreeForCharity/FFC-IN-ClarasBridge',
+      href: 'https://github.com/FreeForCharity/FFC-EX-clarasbridge.org',
       label: 'GitHub',
     },
   ]
