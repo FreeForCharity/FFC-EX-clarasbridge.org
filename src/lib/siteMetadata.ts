@@ -40,7 +40,7 @@ export const siteMetadata: Metadata = {
     siteName: "Clara's Bridge",
     title: "Clara's Bridge | Recovery Mentorship & Support",
     description:
-      "Supporting individuals rebuilding their lives in recovery through structured mentorship and community connections.",
+      'Supporting individuals rebuilding their lives in recovery through structured mentorship and community connections.',
     images: [
       {
         url: '/web-app-manifest-512x512.png',
@@ -55,7 +55,7 @@ export const siteMetadata: Metadata = {
     site: '',
     title: "Clara's Bridge | Recovery Mentorship & Support",
     description:
-      "Supporting individuals rebuilding their lives in recovery through structured mentorship and community connections.",
+      'Supporting individuals rebuilding their lives in recovery through structured mentorship and community connections.',
     images: ['/web-app-manifest-512x512.png'],
   },
   icons: {

@@ -146,9 +146,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div
-              className="flex items-start gap-3"
-            >
+            <div className="flex items-start gap-3">
               <MapPin className="w-10 h-10 text-orange-500 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="font-[500] text-[22px]">Main Address</p>
@@ -183,8 +181,7 @@ const Footer: React.FC = () => {
         id="aria-font"
       >
         <p>
-          © {currentYear} Clara&apos;s Bridge. All Rights Reserved | A
-          project of{' '}
+          © {currentYear} Clara&apos;s Bridge. All Rights Reserved | A project of{' '}
           <Link
             href="https://freeforcharity.org"
             className="underline text-[#2EA3F2] hover:text-[#2EA3F2] transition-colors"
