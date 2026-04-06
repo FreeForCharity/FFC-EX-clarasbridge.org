@@ -9,7 +9,7 @@ const index = () => {
           <h1 className="text-4xl md:text-5xl font-normal mb-6" id="faustina-font">
             Clara&apos;s Bridge
           </h1>
-          <a
+         <a
   href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-10174"
   target="_blank"
   rel="noopener noreferrer"
