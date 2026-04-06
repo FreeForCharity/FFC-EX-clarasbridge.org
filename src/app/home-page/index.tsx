@@ -18,9 +18,10 @@ const index = () => {
             Donate
           </a>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto" id="lato-font">
-            Supporting individuals rebuilding their lives in recovery through structured mentorship,
-            accountability, and community connections.
+          Supporting individuals rebuilding their lives in recovery through structured mentorship,
+          accountability, and community connections.
           </p>
+          
         </div>
       </section>
 
