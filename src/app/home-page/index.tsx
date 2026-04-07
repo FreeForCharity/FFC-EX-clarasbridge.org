@@ -9,14 +9,14 @@ const index = () => {
           <h1 className="text-4xl md:text-5xl font-normal mb-6" id="faustina-font">
             Clara&apos;s Bridge
           </h1>
-         <a
-  href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-10174"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 transition"
->
-  Donate
-</a>
+          <a
+            href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-10174"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 transition"
+          >
+            Donate
+          </a>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto" id="lato-font">
             Supporting individuals rebuilding their lives in recovery through structured mentorship,
             accountability, and community connections.
