@@ -4,32 +4,33 @@ const index = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section id="hero" className="bg-[#EEEBED] py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-normal mb-6" id="faustina-font">
+      <section
+        id="hero"
+        className="relative bg-gradient-to-br from-teal-900 via-teal-700 to-teal-500 min-h-[420px] flex flex-col justify-between px-8 py-12 overflow-hidden"
+      >
+        {/* Decorative circle accents */}
+        <div className="absolute -top-16 -right-16 w-64 h-64 bg-teal-400 opacity-20 rounded-full" />
+        <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-teal-300 opacity-20 rounded-full" />
+
+        <div className="relative z-10 max-w-5xl mx-auto w-full text-center">
+          <h1 className="text-5xl md:text-6xl font-normal text-white" id="faustina-font">
             Clara&apos;s Bridge
           </h1>
-          <a
-            href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-10174"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-6 bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 transition"
-          >
-            Donate
-          </a>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto" id="lato-font">
-          Supporting individuals rebuilding their lives in recovery through structured mentorship,
-          accountability, and community connections.
+        </div>
+        <div className="relative z-10 max-w-5xl mx-auto w-full mt-12">
+          <p className="text-2xl md:text-3xl font-bold text-white leading-tight" id="lato-font">
+            More Than Support
+            <br />
+            Learning to Live Again
           </p>
-          
         </div>
       </section>
 
       {/* Our Purpose Section */}
-      <section id="purpose" className="py-16 px-4 bg-white">
+      <section id="purpose" className="pt-10 pb-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl font-normal mb-6" id="faustina-font">
+            <h2 className="text-3xl font-normal mb-6 text-teal-700" id="faustina-font">
               Our Purpose
             </h2>
             <div className="space-y-4 text-gray-600" id="lato-font">
@@ -55,7 +56,7 @@ const index = () => {
           </div>
 
           <div>
-            <h2 className="text-3xl font-normal mb-6" id="faustina-font">
+            <h2 className="text-3xl font-normal mb-6 text-teal-700" id="faustina-font">
               Who We Help
             </h2>
             <ul
@@ -74,9 +75,9 @@ const index = () => {
       </section>
 
       {/* Our Story Section */}
-      <section id="our-story" className="py-16 px-4 bg-[#EEEBED]">
+      <section id="our-story" className="pt-10 pb-16 px-4 bg-[#EEEBED]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-normal mb-6 text-center" id="faustina-font">
+          <h2 className="text-3xl font-normal mb-6 text-center text-teal-800" id="faustina-font">
             Why Clara&apos;s Bridge Exists
           </h2>
           <p className="text-gray-600 text-center max-w-3xl mx-auto" id="lato-font">
@@ -92,20 +93,20 @@ const index = () => {
       {/* Services Section */}
       <section id="services" className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-normal mb-12 text-center" id="faustina-font">
+          <h2 className="text-3xl font-normal mb-12 text-center text-teal-800" id="faustina-font">
             How We Help
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold mb-3" id="faustina-font">
+            <div className="text-center p-6 border-t-4 border-teal-500 rounded-b-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-teal-700" id="faustina-font">
                 Mentorship
               </h3>
               <p className="text-gray-600" id="lato-font">
                 One on one guidance from experienced mentors who have sustained recovery.
               </p>
             </div>
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold mb-3" id="faustina-font">
+            <div className="text-center p-6 border-t-4 border-teal-500 rounded-b-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-teal-700" id="faustina-font">
                 Life Skills
               </h3>
               <p className="text-gray-600" id="lato-font">
@@ -113,16 +114,16 @@ const index = () => {
                 recovery.
               </p>
             </div>
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold mb-3" id="faustina-font">
+            <div className="text-center p-6 border-t-4 border-teal-500 rounded-b-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-teal-700" id="faustina-font">
                 Accountability
               </h3>
               <p className="text-gray-600" id="lato-font">
                 Regular check-ins to encourage progress.
               </p>
             </div>
-            <div className="text-center p-6">
-              <h3 className="text-xl font-semibold mb-3" id="faustina-font">
+            <div className="text-center p-6 border-t-4 border-teal-500 rounded-b-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-3 text-teal-700" id="faustina-font">
                 Community
               </h3>
               <p className="text-gray-600" id="lato-font">
@@ -136,7 +137,7 @@ const index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-16 px-4 bg-[#EEEBED]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-normal mb-6" id="faustina-font">
+          <h2 className="text-3xl font-normal mb-6 text-teal-800" id="faustina-font">
             Contact
           </h2>
           <p className="text-gray-600 mb-4" id="lato-font">
@@ -155,22 +156,30 @@ const index = () => {
             </p>
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="bg-white rounded-lg p-6 shadow-sm max-w-xs">
-              <h3 className="text-lg font-semibold mb-2" id="faustina-font">
+            <a
+              href="mailto:info@clarasbridge.org?subject=Volunteer%20Interest"
+              className="bg-white rounded-lg p-6 shadow-sm max-w-xs hover:shadow-md transition-shadow border-t-4 border-teal-500 block text-left"
+            >
+              <h3 className="text-lg font-semibold mb-2 text-teal-700" id="faustina-font">
                 Volunteer
               </h3>
               <p className="text-gray-600 text-sm" id="lato-font">
                 Support individuals in recovery by volunteering as a mentor.
               </p>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm max-w-xs">
-              <h3 className="text-lg font-semibold mb-2" id="faustina-font">
+            </a>
+            <a
+              href="https://www.zeffy.com/en-US/donation-form/donate-to-change-lives-10174"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white rounded-lg p-6 shadow-sm max-w-xs hover:shadow-md transition-shadow border-t-4 border-green-500 block text-left"
+            >
+              <h3 className="text-lg font-semibold mb-2 text-green-700" id="faustina-font">
                 Donate
               </h3>
               <p className="text-gray-600 text-sm" id="lato-font">
                 Help support stable, independent lives in recovery.
               </p>
-            </div>
+            </a>
           </div>
         </div>
       </section>
