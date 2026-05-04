@@ -77,7 +77,7 @@ const index = () => {
       {/* Our Story Section */}
       <section id="our-story" className="pt-10 pb-16 px-4 bg-[#EEEBED]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-normal mb-6 text-center text-teal-800" id="faustina-font">
+          <h2 className="text-3xl font-normal mb-6 text-center text-teal-700" id="faustina-font">
             Why Clara&apos;s Bridge Exists
           </h2>
           <p className="text-gray-600 text-center max-w-3xl mx-auto" id="lato-font">
@@ -93,7 +93,7 @@ const index = () => {
       {/* Services Section */}
       <section id="services" className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-normal mb-12 text-center text-teal-800" id="faustina-font">
+          <h2 className="text-3xl font-normal mb-12 text-center text-teal-700" id="faustina-font">
             How We Help
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -137,7 +137,7 @@ const index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-16 px-4 bg-[#EEEBED]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-normal mb-6 text-teal-800" id="faustina-font">
+          <h2 className="text-3xl font-normal mb-6 text-teal-700" id="faustina-font">
             Contact
           </h2>
           <p className="text-gray-600 mb-4" id="lato-font">
@@ -158,6 +158,7 @@ const index = () => {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:info@clarasbridge.org?subject=Volunteer%20Interest"
+              aria-label="Email us about volunteer opportunities"
               className="bg-white rounded-lg p-6 shadow-sm max-w-xs hover:shadow-md transition-shadow border-t-4 border-teal-500 block text-left"
             >
               <h3 className="text-lg font-semibold mb-2 text-teal-700" id="faustina-font">
