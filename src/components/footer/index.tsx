@@ -181,7 +181,7 @@ const Footer: React.FC = () => {
         id="aria-font"
       >
         <p>
-          © {currentYear} Clara&apos;s Bridge. All Rights Reserved | A project of{' '}
+          © {currentYear} Clara&apos;s Bridge. All Rights Reserved | Supported by{' '}
           <Link
             href="https://freeforcharity.org"
             className="underline text-[#2EA3F2] hover:text-[#2EA3F2] transition-colors"

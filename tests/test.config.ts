@@ -40,7 +40,7 @@ export const testConfig = {
    * Used in: tests/copyright.spec.ts
    */
   copyright: {
-    text: "Clara's Bridge. All Rights Reserved | A project of Free For Charity",
+    text: "Clara's Bridge. All Rights Reserved | Supported by Free For Charity",
     searchText: 'All Rights Reserved',
     linkUrl: 'https://freeforcharity.org',
     linkText: 'Free For Charity',
