@@ -19,8 +19,8 @@ Many nonprofits already have a website design but lack the legal, compliance, an
 ```bash
 git clone https://github.com/FreeForCharity/FFC-IN-Footer-Only-Template.git
 cd FFC-IN-Footer-Only-Template
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Visit [http://localhost:3000](http://localhost:3000)
@@ -120,23 +120,23 @@ Charities can fork this template, replace the content with their own organizatio
 
 ### Commands
 
-| Command            | Purpose                   |
-| ------------------ | ------------------------- |
-| `npm run dev`      | Start development server  |
-| `npm run format`   | Format code with Prettier |
-| `npm run lint`     | Run ESLint                |
-| `npm test`         | Run Jest unit tests       |
-| `npm run build`    | Production static build   |
-| `npm run test:e2e` | Run Playwright E2E tests  |
+| Command             | Purpose                   |
+| ------------------- | ------------------------- |
+| `pnpm run dev`      | Start development server  |
+| `pnpm run format`   | Format code with Prettier |
+| `pnpm run lint`     | Run ESLint                |
+| `pnpm test`         | Run Jest unit tests       |
+| `pnpm run build`    | Production static build   |
+| `pnpm run test:e2e` | Run Playwright E2E tests  |
 
 ### Pre-Commit Checklist
 
 ```bash
-npm run format
-npm run lint
-npm test
-npm run build
-npm run test:e2e
+pnpm run format
+pnpm run lint
+pnpm test
+pnpm run build
+pnpm run test:e2e
 ```
 
 ### Testing
