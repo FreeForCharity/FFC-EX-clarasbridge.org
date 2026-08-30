@@ -338,7 +338,11 @@ export default function CookiePolicy() {
             These cookies are used to track visitors across websites. The intention is to display
             ads that are relevant and engaging for users and thereby more valuable for publishers
             and advertisers. The Meta Pixel loads only after you explicitly enable marketing cookies
-            through the consent banner — everywhere in the world, in every region.
+            through the consent banner — everywhere in the world, in every region. Withdrawing
+            consent deletes the marketing cookies set on this site&apos;s domain; cookies that Meta
+            sets on its own domains (such as the <code>fr</code> cookie on facebook.com) cannot be
+            deleted by this site&apos;s banner and are governed by Meta&apos;s own controls and your
+            browser settings.
           </p>
 
           {/* Meta Pixel */}

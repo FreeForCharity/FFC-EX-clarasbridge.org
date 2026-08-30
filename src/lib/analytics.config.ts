@@ -22,7 +22,14 @@ export const analyticsConfig = {
 // The placeholder values shipped above. Loaders check against this list so
 // that "leave a value as its placeholder to keep that integration
 // effectively inert" (the promise a few lines up) is actually honored.
-const PLACEHOLDER_IDS: readonly string[] = ['G-XXXXXXXXXX', 'XXXXXXXXXXXXXXX', 'XXXXXXXXXX']
+const PLACEHOLDER_IDS: readonly string[] = [
+  'G-XXXXXXXXXX',
+  'XXXXXXXXXXXXXXX',
+  'XXXXXXXXXX',
+  // clarityProjectId as shipped above (8 X's — both clarity variants listed
+  // so the list stays aligned with reality even if the X-run regex changes).
+  'XXXXXXXX',
+]
 
 /**
  * True when an analytics ID has been replaced with a real value. A falsy

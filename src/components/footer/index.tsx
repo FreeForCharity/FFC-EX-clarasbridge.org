@@ -115,8 +115,9 @@ const Footer: React.FC = () => {
                     the cookie-consent banner registers on window. */}
                 <button
                   type="button"
+                  aria-haspopup="dialog"
                   onClick={() => window.openCookiePreferences?.()}
-                  className="hover:text-[#F58C23] hover:tracking-widest transition-all text-[16px] font-[500]"
+                  className="hover:text-[#F58C23] hover:tracking-widest focus-visible:text-[#F58C23] focus-visible:tracking-widest transition-all text-[16px] font-[500]"
                 >
                   Cookie Preferences
                 </button>

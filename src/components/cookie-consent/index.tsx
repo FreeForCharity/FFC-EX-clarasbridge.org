@@ -164,7 +164,11 @@ export default function CookieConsent() {
   // cookies — it runs on any withdrawal, so the name says "tracking",
   // not "analytics".
   const deleteTrackingCookies = useCallback(() => {
-    // Static cookie names: GA4, Meta Pixel, Microsoft Clarity
+    // Static cookie names: GA4, Meta Pixel, Microsoft Clarity. Note that
+    // `fr` is normally a THIRD-party cookie scoped to facebook.com, which
+    // document.cookie on this origin cannot touch — expiring it here is a
+    // harmless no-op kept for the rare first-party variant. Only cookies
+    // readable on this site's domain can actually be deleted from here.
     expireCookies(['_ga', '_gid', '_fbp', 'fr', '_clck', '_clsk'])
 
     // Dynamically delete all cookies matching _ga_* (e.g., _ga_G-XXXXXXXXXX)
@@ -381,7 +385,10 @@ export default function CookieConsent() {
       console.warn('Unable to save preferences to localStorage:', e)
     }
 
-    // Delete third-party cookies when consent is withdrawn
+    // Expire the tracking cookies set on this site's domain when consent
+    // is withdrawn. (Cookies that providers set on their own domains —
+    // e.g. Meta's `fr` on facebook.com — are out of reach of this origin
+    // and are governed by those providers' own controls.)
     deleteTrackingCookies()
 
     applyConsent(onlyNecessary, savedPreferencesBackup)

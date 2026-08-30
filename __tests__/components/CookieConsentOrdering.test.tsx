@@ -9,6 +9,8 @@ import { render, waitFor } from '@testing-library/react'
 // of a hoisted top-of-file import. isConfigured keeps its real implementation.
 const GA_SCRIPT_SELECTOR = 'script[src*="googletagmanager.com/gtag"]'
 
+const ORIGINAL_GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+
 let CookieConsent: React.ComponentType
 
 beforeAll(async () => {
@@ -17,7 +19,16 @@ beforeAll(async () => {
 })
 
 afterAll(() => {
-  delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  // Restore the ambient value so the override cannot leak into other test
+  // files running in the same Jest worker, and purge this file's module
+  // registry so no later import in this worker observes a CookieConsent
+  // module that captured the test ID.
+  if (ORIGINAL_GA_ID === undefined) {
+    delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+  } else {
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = ORIGINAL_GA_ID
+  }
+  jest.resetModules()
 })
 
 /**
