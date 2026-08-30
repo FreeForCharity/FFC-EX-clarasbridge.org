@@ -19,9 +19,11 @@ export const analyticsConfig = {
   clarityProjectId: 'XXXXXXXX',
 } as const
 
-// The placeholder values shipped above. Loaders check against this list so
-// that "leave a value as its placeholder to keep that integration
-// effectively inert" (the promise a few lines up) is actually honored.
+// The placeholder values the loaders can encounter: the literals shipped in
+// analyticsConfig above, plus the NEXT_PUBLIC_* env-var fallback placeholders
+// the cookie-consent loaders use. Loaders check against this list so that
+// "leave a value as its placeholder to keep that integration effectively
+// inert" (the promise a few lines up) is actually honored.
 const PLACEHOLDER_IDS: readonly string[] = [
   'G-XXXXXXXXXX',
   'XXXXXXXXXXXXXXX',
