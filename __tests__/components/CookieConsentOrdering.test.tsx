@@ -15,6 +15,11 @@ let CookieConsent: React.ComponentType
 
 beforeAll(async () => {
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234567'
+  // Another suite in this worker may already have imported CookieConsent
+  // statically, which would hand this dynamic import the cached module that
+  // captured the placeholder ID — reset the registry so the import below
+  // compiles a fresh module that reads the test ID set above.
+  jest.resetModules()
   CookieConsent = (await import('../../src/components/cookie-consent')).default
 })
 
