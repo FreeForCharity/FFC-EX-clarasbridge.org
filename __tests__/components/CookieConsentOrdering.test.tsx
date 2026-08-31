@@ -5,27 +5,25 @@ import { render, waitFor } from '@testing-library/react'
 // NEXT_PUBLIC_GA_MEASUREMENT_ID at module scope, and the shipped fallback is
 // the inert placeholder, which keeps the direct GA4 loader from injecting
 // anything — so set a real-looking ID BEFORE the component module is loaded.
-// That is why the component arrives via a dynamic import in beforeAll instead
-// of a hoisted top-of-file import. isConfigured keeps its real implementation.
+// That is why the component arrives via a require below instead of a hoisted
+// top-of-file import. isConfigured keeps its real implementation.
 const GA_SCRIPT_SELECTOR = 'script[src*="googletagmanager.com/gtag"]'
 
 const ORIGINAL_GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234567'
 
-let CookieConsent: React.ComponentType
-
-beforeAll(async () => {
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = 'G-TEST1234567'
-  // Another suite in this worker may already have imported CookieConsent
-  // statically, which would hand this dynamic import the cached module that
-  // captured the placeholder ID — reset the registry so the import below
-  // compiles a fresh module that reads the test ID set above.
-  jest.resetModules()
-  CookieConsent = (await import('../../src/components/cookie-consent')).default
-})
+// Deliberately NO jest.resetModules() before this require. Jest already gives
+// every test FILE its own module registry, so nothing stale can be cached
+// here — while resetting at this point would recompile the component against
+// a SECOND React instance, leaving this file and @testing-library/react on
+// the first. The component's useState would then resolve against a null
+// dispatcher and every render in this suite dies with
+// "Cannot read properties of null (reading 'useState')".
+const CookieConsent = require('../../src/components/cookie-consent').default as React.ComponentType
 
 afterAll(() => {
   // Restore the ambient value so the override cannot leak into other test
-  // files running in the same Jest worker, and purge this file's module
+  // files running in the same Jest worker, and only THEN purge the module
   // registry so no later import in this worker observes a CookieConsent
   // module that captured the test ID.
   if (ORIGINAL_GA_ID === undefined) {
