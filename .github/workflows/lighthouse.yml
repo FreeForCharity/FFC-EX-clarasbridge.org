@@ -81,7 +81,10 @@ jobs:
             mkdir -p "_lhci-site${base}"
             cp -r out/. "_lhci-site${base}/"
             flags="--collect.staticDistDir=./_lhci-site"
-            pages=$(jq -r '.ci.collect.url[] | sub("^http://localhost/"; "")' lighthouserc.json)
+            # node, not jq: this workflow guards its other jq use with an
+            # install check, so a new unguarded one before Lighthouse runs
+            # would be the fragile step. Node is already set up above.
+            pages=$(node -e 'for (const u of require(process.cwd() + "/lighthouserc.json").ci.collect.url) console.log(new URL(u).pathname.slice(1))')
             for page in $pages; do
               flags="$flags --collect.url=http://localhost${base}/${page}"
             done
