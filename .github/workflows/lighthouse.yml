@@ -84,9 +84,14 @@ jobs:
             # node, not jq: this workflow guards its other jq use with an
             # install check, so a new unguarded one before Lighthouse runs
             # would be the fragile step. Node is already set up above.
-            pages=$(node -e 'for (const u of require(process.cwd() + "/lighthouserc.json").ci.collect.url) console.log(new URL(u).pathname.slice(1))')
-            for page in $pages; do
-              flags="$flags --collect.url=http://localhost${base}/${page}"
+            #
+            # node emits whole --collect.url flags rather than page fragments
+            # the shell re-joins: a bare "http://localhost/" has an empty
+            # fragment, and `for page in $pages` would drop it, silently
+            # removing the home page from the audit on a subpath build.
+            urls=$(BASE="$base" node -e 'const b = process.env.BASE; for (const u of require(process.cwd() + "/lighthouserc.json").ci.collect.url) console.log("--collect.url=http://localhost" + b + new URL(u).pathname)')
+            for u in $urls; do
+              flags="$flags $u"
             done
             echo "flags=$flags" >> "$GITHUB_OUTPUT"
           else
