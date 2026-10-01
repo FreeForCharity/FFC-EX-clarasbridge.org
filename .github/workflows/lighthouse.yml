@@ -42,15 +42,64 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Determine base path
+        id: basepath
+        # Custom-domain deploys serve from the origin root, so
+        # NEXT_PUBLIC_BASE_PATH must be empty; subpath-only deploys (no CNAME)
+        # need /<repo-name>. Deriving it is the point: the hardcoded value this
+        # replaces named a different repository, so every asset URL 404'd.
+        run: |
+          if [ -s "public/CNAME" ]; then
+            echo "Using empty basePath (public/CNAME present: $(cat public/CNAME))"
+            echo "value=" >> "$GITHUB_OUTPUT"
+          else
+            REPO_NAME="${GITHUB_REPOSITORY#*/}"
+            echo "Using /$REPO_NAME basePath (no CNAME - github.io subpath deploy)"
+            echo "value=/$REPO_NAME" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build site
         run: pnpm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /FFC-IN-Footer_Only_Template
+          # Same derivation as deploy.yml, so the audited build
+          # matches the published one. "Stage site for Lighthouse"
+          # below then serves it at the same subpath.
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.basepath.outputs.value }}
+
+      - name: Stage site for Lighthouse
+        id: stage
+        # lighthouserc.json serves ./out at the root and audits root-relative
+        # URLs. That matches a custom-domain deploy, but a subpath build
+        # prefixes every asset URL with /<repo-name>: served from the root they
+        # all 404 and Lighthouse silently scores an unstyled skeleton instead of
+        # failing. Nest the export under the same subpath the deploy uses and
+        # audit the subpath URLs. The page list comes from lighthouserc.json so
+        # it cannot drift from the config.
+        run: |
+          base="${{ steps.basepath.outputs.value }}"
+          if [ -n "$base" ]; then
+            mkdir -p "_lhci-site${base}"
+            cp -r out/. "_lhci-site${base}/"
+            flags="--collect.staticDistDir=./_lhci-site"
+            # node, not jq: this workflow guards its other jq use with an
+            # install check, so a new unguarded one before Lighthouse runs
+            # would be the fragile step. Node is already set up above.
+            #
+            # node emits whole --collect.url flags rather than page fragments
+            # the shell re-joins: a bare "http://localhost/" has an empty
+            # fragment, and `for page in $pages` would drop it, silently
+            # removing the home page from the audit on a subpath build.
+            urls=$(BASE="$base" node -e 'const b = process.env.BASE; for (const u of require(process.cwd() + "/lighthouserc.json").ci.collect.url) console.log("--collect.url=http://localhost" + b + new URL(u).pathname)')
+            for u in $urls; do
+              flags="$flags $u"
+            done
+            echo "flags=$flags" >> "$GITHUB_OUTPUT"
+          else
+            echo "flags=" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Run Lighthouse CI
-        run: |
-          npm install -g @lhci/cli
-          lhci autorun
+        run: pnpm exec lhci autorun ${{ steps.stage.outputs.flags }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
